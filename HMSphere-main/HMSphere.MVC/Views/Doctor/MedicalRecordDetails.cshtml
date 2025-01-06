@@ -1,0 +1,60 @@
+﻿@model HMSphere.MVC.ViewModels.MedicalRecordViewModel
+
+@{
+    ViewData["Title"] = "Medical Record Details";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title text-primary">Medical Record Details</h4><br />
+
+            <p><strong>Date:</strong> <br/> @Model.CreatedDate.ToString("yyyy/MM/dd")</p>
+
+            <div class="form-group">
+                <label for="patientName"><strong>Patient's Name:</strong></label>
+                <br /><p>@Model.PatientName</p>
+            </div>
+
+            <div class="form-group">
+                <label for="doctorName"><strong>Doctor's Name: </strong></label>
+                <br /><p>@Model.DoctorName</p>
+                @* <input type="text" class="form-control" id="doctorName" value="@Model.DoctorName" readonly /> *@
+            </div>
+
+
+            <div class="form-group">
+                <label for="Disease"><strong>Disease:</strong></label>
+                <p>@Model.Diagnosis</p>
+            </div>
+
+            <div class="form-group">
+                <label for="TreatmentPlan"><strong>Treatment Plan:</strong></label>
+                <br /><p>@Model.TreatmentPlan</p>
+            </div>
+
+            <div class="form-group">
+                <label for="Medications"><strong>Medications:</strong></label>
+                <br /><p>@Model.Medications</p>
+            </div>
+
+            <div class="form-group">
+                <label for="Doctor'sNotes"><strong>Doctor's Notes:</strong></label>
+                <br /><p>@Model.DoctorNotes</p>
+            </div>
+
+            <div class="form-group">
+                <label for="LastUpdated"><strong>Last updated at:</strong></label>
+                <br /><p>@Model.LastUpdated.ToString("yyyy/MM/dd")</p>
+            </div>
+
+            <div class="mt-4">
+                <a asp-controller="Doctor" asp-action="MedicalRecords" asp-route-id="@Model.Id"
+                   class="btn btn-warning w-25">
+                    Edit
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>

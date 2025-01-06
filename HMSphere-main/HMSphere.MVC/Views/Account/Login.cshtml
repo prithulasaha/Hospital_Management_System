@@ -1,0 +1,142 @@
+﻿@model HMSphere.MVC.ViewModels.LoginViewModel
+@{
+	Layout = "_AccountLayout.cshtml";
+	ViewData["Title"] = "Log in";
+}
+<section class="form animated flipInX">
+	<div class="head">Login Form</div>
+	<div class="form-wrapper">
+		<form asp-action="SaveLogin" method="post">
+			@Html.AntiForgeryToken()
+			<!-- Email Field -->
+			<div class="form-group">
+				<label asp-for="Email" class="control-label mt-4"></label>
+				<input asp-for="Email" class="form-control" type="email" placeholder="Enter your email" />
+				<span asp-validation-for="Email" class="text-danger"></span>
+			</div>
+
+			<!-- Password Field -->
+			<div class="form-group">
+				<label asp-for="Password" class="control-label mt-4"></label>
+				<input asp-for="Password" class="form-control" type="password" placeholder="Enter your password" />
+				<span asp-validation-for="Password" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary">Login</button>
+			</div>
+			</br>
+			<div class="remember form-group">
+				<p>Not a Member</p>
+				<a asp-controller="Account" asp-action="Register">Sign Up?</a>
+			</div>
+		</form>
+	</div>
+
+	<style>
+		body {
+			background-image: url('/images/3.jpg');
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
+			font-family: "Roboto", sans-serif;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		.remember {
+			justify-content: center;
+			display: flex;
+			gap: 5px;
+		}
+
+		.form {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: #fff;
+			width: 350px;
+			box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+		}
+
+		.form-wrapper {
+			padding-left: 20px;
+			padding-bottom: 30px;
+			padding-right: 20px;
+			box-sizing: border-box; /* Ensures padding is included in width calculations */
+		}
+
+		input {
+			outline: none;
+			width: 100%;
+			margin-bottom: 20px;
+			padding: 10px 15px;
+			border: 1px solid #ccc;
+			color: #333;
+			font-family: "Roboto", sans-serif;
+			box-sizing: border-box;
+			font-size: 14px;
+			transition: 0.2s linear;
+		}
+
+			input:focus {
+				border-color: #44c4e7;
+			}
+
+		a {
+			margin-bottom: 5px;
+		}
+
+		button {
+			cursor: pointer;
+			background: #44c4e7;
+			width: 100%;
+			padding: 10px 15px;
+			margin-bottom: 5px;
+			border: 0;
+			color: #fff;
+			font-family: "Roboto", sans-serif;
+			font-size: 14px;
+			transition: background 0.2s;
+		}
+
+			button:hover {
+				background: #369cb8;
+			}
+
+		.head {
+			width: 100%;
+			height: 60px;
+			color: #fff;
+			background-color: #2fa3e6;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin: 0;
+			box-sizing: border-box;
+			font-size: 18px;
+			font-weight: 400;
+		}
+
+	</style>
+
+	@section Scripts {
+		<!-- Include validation script for client-side validation -->
+		<partial name="_ValidationScriptsPartial" />
+	}
+
+	<!-- Display Server-side Errors -->
+	@if (ViewData.ModelState[""]?.Errors.Count > 0)
+	{
+		<div class="alert alert-danger">
+			@ViewData.ModelState[""]?.Errors[0].ErrorMessage
+		</div>
+	}
+
+</section>
+

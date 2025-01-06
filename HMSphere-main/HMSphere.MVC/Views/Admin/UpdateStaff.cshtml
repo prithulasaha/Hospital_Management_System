@@ -1,0 +1,43 @@
+﻿@model HMSphere.MVC.ViewModels.StaffViewModel
+
+@{
+    ViewData["Title"] = "Update Staff";
+}
+<h1>Edit Doctor</h1>
+
+<form asp-action="SaveUpdateStaff" asp-controller="Admin" asp-route-id="@Model.Id">
+    <div class="mb-3">
+        <label asp-for="FirstName" class="form-label"></label>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="LastName" class="form-label"></label>
+        <input asp-for="LastName" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="JobTitle" class="form-label"></label>
+        <input asp-for="JobTitle" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="HireDate" class="form-label"></label>
+        <input asp-for="HireDate" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DepartmentId" class="form-label"></label>
+        <select asp-for="DepartmentId" asp-items="Model.Departments" class="form-control">
+            <option value="">-- Select Department --</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="PhoneNumber" class="form-label"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+    </div>
+
+    <input type="submit" class="btn btn-success" value="Save" />
+</form>
+</br>
+
+<a asp-action="Staff" class="btn-primary" style="color:#FFF;padding:5px; text-decoration:none; border-radius:5px;">Back To List</a>

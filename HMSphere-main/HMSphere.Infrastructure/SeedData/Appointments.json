@@ -1,0 +1,38 @@
+[
+  {
+    "Date": "2024-10-18T10:00:00",
+    "ReasonFor": "Follow-up checkup",
+    "Clinic": "Nephrology Clinic",
+    "CreatedDate": "2024-10-10T10:00:00",
+    "IsDeleted": false,
+    "DoctorId": "5b1cacc5-9b83-431f-9dab-77dd3e7d581c",
+    "PatientId": "95f68205-c56c-4325-9f93-00e161634161"
+  },
+  {
+    "Date": "2024-10-20T11:00:00",
+    "ReasonFor": "Routine examination",
+    "Clinic": "Cardiology Clinic",
+    "CreatedDate": "2024-10-10T11:00:00",
+    "IsDeleted": false,
+    "DoctorId": "5b1cacc5-9b83-431f-9dab-77dd3e7d581c",
+    "PatientId": "c6c606d2-df5b-4f86-9846-128bd9a395c2"
+  },
+  {
+    "Date": "2024-10-24T14:00:00",
+    "ReasonFor": "Initial consultation",
+    "Clinic": "General Surgery",
+    "CreatedDate": "2024-10-10T14:00:00",
+    "IsDeleted": false,
+    "DoctorId": "5b1cacc5-9b83-431f-9dab-77dd3e7d581c",
+    "PatientId": "dc298100-b868-4920-b226-36d948427d35"
+  },
+  {
+    "Date": "2024-10-22T10:00:00",
+    "ReasonFor": "Consultation for chronic pain",
+    "Clinic": "Pain Management Clinic",
+    "CreatedDate": "2024-10-11T09:00:00",
+    "IsDeleted": false,
+    "DoctorId": "5b1cacc5-9b83-431f-9dab-77dd3e7d581c",
+    "PatientId": "9e2d2db0-a4a3-4110-975a-e67918c36dae"
+  }
+]

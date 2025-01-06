@@ -1,0 +1,186 @@
+﻿@model IEnumerable<HMSphere.MVC.ViewModels.PatientsHistoryViewModel>
+
+@{
+	ViewData["Title"] = "Patients History";
+}
+
+<style>
+	.table td, .table th {
+		text-align: center;
+		vertical-align: middle;
+	}
+
+	.btn-view {
+		background-color: #2a9fd9;
+		color: white;
+		border-radius: 20px;
+		padding: 5px 15px;
+	}
+
+	.btn-view:hover {
+		background-color: #17a2b8;
+	}
+
+	.bi{
+		font-size:25px;
+		margin-left: 15px;
+	}
+
+</style>
+
+<div class="container mt-4">
+	<div class="d-flex justify-content-between mb-4">
+		<h2>Patients History</h2>
+	</div>
+
+	<div class="row mb-3">
+		<div class="col-md-3">
+			<input type="text" id="nameSearch" class="form-control" placeholder="Search by Name"
+				   onkeyup="searchByName()">
+		</div>
+		<div class="col-md-3">
+			<input type="text" id="nidSearch" class="form-control" placeholder="Search by NID"
+				   onkeyup="searchByNID()">
+		</div>
+		<div class="col-md-3 d-flex">
+			<input type="text" id="bloodSearch" class="form-control" placeholder="Search by Blood Type"
+				   onkeyup="searchByBloodType()">
+			<i class="bi bi-search text-secondary"></i>
+		</div>
+
+
+	</div>
+
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Gender</th>
+					<th>Weight</th>
+					<th>Height</th>
+					<th>Age</th>
+					<th>Blood Type</th>
+					<th>Phone No</th>
+					<th>Last Visit Date</th>
+					<th>Medical Record</th>
+				</tr>
+			</thead>
+			<tbody id="patientsTable">
+				@foreach(var item in Model)
+				{
+					<tr>
+						<td>@item.FirstName</td>
+						<td>@item.Gender</td>
+						<td>@item.Weight</td>
+						<td>@item.Height</td>
+						<td>@item.CalculateAgeFromNID(item.NID)</td>
+						<td>@item.Blood</td>
+						<td>@item.PhoneNumber</td>
+						<td>@item.GetLastVisitDate()</td>
+						<td>
+							<form asp-controller="Doctor" asp-action="MedicalRecords" asp-route-data="@item.PatientId" method="get">
+								<input type="hidden" name="patientId" value="@item.PatientId" />
+								<button type="submit" class="btn btn-view">View</button>
+							</form>
+						</td>
+
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<script>
+
+	function searchByName() {
+		var name = document.getElementById("nameSearch").value;
+		console.log("Searching for:", name);
+
+		$.ajax({
+			url: '/Doctor/SearchPatientByName',
+			type: 'GET',
+			data: { name: name },
+			success: function (response) {
+				console.log("Response:", response);
+				updateTable(response);
+			},
+			error: function (xhr, status, error) {
+				console.error("Error:", error);
+			}
+		});
+	}
+
+	function searchByNID() {
+		var nid = document.getElementById("nidSearch").value;
+		console.log("Searching for NID:", nid);
+
+		$.ajax({
+			url: '/Doctor/SearchPatientByNID',
+			type: 'GET',
+			data: { nid: nid },
+			success: function (response) {
+				console.log("Response:", response);
+				updateTable(response);
+			},
+			error: function (xhr, status, error) {
+				console.error("Error:", error);
+			}
+		});
+	}
+
+	function searchByBloodType() {
+		var type = document.getElementById("bloodSearch").value;
+		console.log("Searching for blood type:", type);
+
+		$.ajax({
+			url: '/Doctor/SearchPatientByBloodType',
+			type: 'GET',
+			data: { type: type },
+			success: function (response) {
+				console.log("Response:", response);
+				updateTable(response);
+			},
+			error: function (xhr, status, error) {
+				console.error("Error:", error);
+			}
+		});
+	}
+
+	function updateTable(patients) {
+		$('#patientsTable').empty();
+
+		if (!patients || patients.length === 0) {
+			$('#patientsTable').append(`<tr><td colspan="9">No patients found.</td></tr>`);
+			return;
+		}
+
+		patients.forEach(function (patient) {
+			var row =
+			`<tr>
+				<td>${patient.firstName}</td>
+				<td>${patient.gender}</td>
+				<td>${patient.weight}</td>
+				<td>${patient.height}</td>
+				<td>${patient.age}</td>
+				<td>${patient.blood}</td>
+				<td>${patient.phoneNumber}</td>
+				<td>${patient.GetLastVisitDate}</td>
+				<td>
+					<form action="/Doctor/MedicalRecords" method="get">
+						<input type="hidden" name="patientId" value="${patient.patientId}" />
+						<button type="submit" class="btn btn-view">View</button>
+					</form>
+				</td>
+			</tr>`;
+			$('#patientsTable').append(row);
+		});
+	}
+
+	// to reload page when navigate it back
+	// if (performance.navigation.type === performance.navigation.TYPE_BACK_FORWARD) {
+	// 	window.location.reload();
+	// }
+</script>
+

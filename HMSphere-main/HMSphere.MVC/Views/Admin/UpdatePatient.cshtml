@@ -1,0 +1,122 @@
+﻿@{
+    ViewData["Title"] = "Update Patient";
+}
+<style>
+    {
+        box-sizing: border-box;
+    }
+    .close-btn {
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    .profile-card {
+        background-color: #2a9fd9;
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .profile-img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .drprofile-img {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+    }
+
+    .profile-text {
+        margin-left: 20px;
+    }
+
+        .profile-text h2 {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .profile-text p {
+            margin: 0;
+        }
+
+    .experience {
+        margin-top: 10px;
+        font-style: italic;
+    }
+
+    .has-shadow {
+        box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+        width: 32%;
+    }
+
+    .bi {
+        font-size: 80px;
+        margin-left: 1.5vw;
+        margin-right: 1vw;
+    }
+
+    .table-header {
+        background-color: #2a9fd9;
+        color: white;
+    }
+
+    .btn-view {
+        background-color: #2a9fd9;
+        color: white;
+        border-radius: 20px;
+        padding: 5px 15px;
+    }
+
+        .btn-view:hover {
+            background-color: #17a2b8;
+        }
+</style>
+
+<h1>Update Patient</h1>
+<form>
+    <div class="mb-3">
+        <label for="name" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="firstname">
+    </div>
+    <div class="mb-3">
+        <label for="name" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lastname">
+    </div>
+
+    <div class="mb-3">
+        <label for="Gender" class="form-label">Gender</label>
+        <input type="text" class="form-control" id="Gender">
+    </div>
+
+    <div class="mb-3">
+        <label for="Weight" class="form-label">Weight</label>
+        <input type="text" class="form-control" id="Weight">
+    </div>
+
+    <div class="mb-3">
+        <label for="Height" class="form-label">Height</label>
+        <input type="text" class="form-control" id="Height">
+    </div>
+
+    <div class="mb-3">
+        <label for="Age" class="form-label">Age</label>
+        <input type="text" class="form-control" id="Age">
+    </div>
+
+    <div class="mb-3">
+        <label for="Blood" class="form-label">Blood</label>
+        <input type="text" class="form-control" id="Blood">
+    </div>
+
+    <div class="mb-3">
+        <label for="phonenumber" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="phonenumber">
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

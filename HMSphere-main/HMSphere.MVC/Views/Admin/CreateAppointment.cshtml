@@ -1,0 +1,57 @@
+﻿@model HMSphere.MVC.ViewModels.AppointmentViewModel
+
+<div class="container mt-5">
+    <h2>Appointment</h2>
+    <form asp-action="CreateAppointment" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Patient">Patient</label>
+                    <select class="form-control" asp-for="PatientId" asp-items="ViewBag.Patients">
+                        <option value="">-- Select One --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Doctor">Doctor</label>
+                    <select class="form-control" asp-for="DoctorId" asp-items="ViewBag.Doctors">
+                        <option value="">Select Doctor</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Date">Date</label>
+                    <input type="date" class="form-control" asp-for="@Model.Date" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Time">Time</label>
+                    <input type="time" class="form-control" asp-for="AppointmentTime" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="Reason">Reason</label>
+                    <textarea class="form-control" asp-for="ReasonFor" placeholder="Reason..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mt-5">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+

@@ -1,0 +1,31 @@
+﻿@model HMSphere.MVC.ViewModels.DoctorViewModel
+<h1>Details Doctor</h1>
+
+<form asp-action="DetailsDoctor" asp-controller="Admin" asp-route-id="@Model.Id">
+    <div class="mb-3">
+        <label asp-for="FirstName" class="form-label"></label>
+        <input asp-for="FirstName" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="LastName" class="form-label"></label>
+        <input asp-for="LastName" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Specialization" class="form-label"></label>
+        <input asp-for="Specialization" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="DepartmentName" class="form-label"></label>
+        <input asp-for="DepartmentName" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="PhoneNumber" class="form-label"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+    </div>
+
+</form>
+</br>
+
+<a asp-action="Doctors" class="btn-primary" style="color:#FFF;padding:5px; text-decoration:none; border-radius:5px;">Back To List</a>

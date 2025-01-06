@@ -1,0 +1,56 @@
+﻿@model IEnumerable<HMSphere.MVC.ViewModels.ShiftViewModel>
+@using System.Globalization
+
+@{
+	ViewData["Title"] = "Staff Shift Schedule";
+}
+
+<style>
+	.table td, .table th {
+		text-align: center;
+		vertical-align: middle;
+	}
+
+	.btn-view {
+		background-color: #2a9fd9;
+		color: white;
+		border-radius: 20px;
+		padding: 5px 15px;
+	}
+
+		.btn-view:hover {
+			background-color: #17a2b8;
+		}
+</style>
+
+<div class="container mt-4">
+	<div class="d-flex justify-content-between mb-4">
+		<h2>Staff Shift Schedule</h2>
+	</div>
+
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Shift Type</th>
+					<th>Start Time</th>
+					<th>End Time</th>
+					<th>Notes</th>
+					<th>IsActive</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var shift in Model)
+				{
+					<tr>
+						<td>@shift.Type</td>
+						<td>@shift.StartTime.ToString("hh:mm tt", CultureInfo.InvariantCulture)</td>
+						<td>@shift.EndTime.ToString("hh:mm tt", CultureInfo.InvariantCulture)</td>
+						<td>@shift.Notes</td>
+						<td>@(shift.IsActive ? "Yes" : "No")</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>

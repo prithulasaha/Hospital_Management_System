@@ -1,0 +1,143 @@
+[
+  {
+    "Name": "Cardiology",
+    "Description": "Heart and vascular services",
+    "IsActive": true,
+    "IsDeleted": false,
+    "Location": "Building A, Floor 3"
+  },
+  {
+    "Name": "Neurology",
+    "Description": "Brain and nervous system care",
+    "IsActive": true,
+    "IsDeleted": false,
+    "Location": "Building B, Floor 2"
+  },
+  {
+    "Name": "Pediatrics",
+    "Description": "Healthcare for children",
+    "IsActive": true,
+    "IsDeleted": false,
+    "Location": "Building A, Floor 1"
+  },
+  {
+    "Name": "Oncology",
+    "Description": "Cancer treatment center",
+    "IsActive": true,
+    "IsDeleted": false,
+    "Location": "Building C, Floor 4"
+  },
+  {
+    "Name": "Dermatology",
+    "Description": "Skin care and treatment",
+    "IsActive": false,
+    "IsDeleted": false,
+    "Location": "Building B, Floor 1"
+  },
+  {
+    "Name": "Radiology",
+    "Description": "Medical imaging services",
+    "IsActive": true,
+    "IsDeleted": false,
+    "Location": "Building D, Floor 5"
+  },
+  {
+    "Name": "Orthopedics",
+    "Description": "Bone and joint care",
+    "IsActive": true,
+    "IsDeleted": false,
+    "Location": "Building E, Floor 3"
+  },
+  {
+    "Name": "Urology",
+    "Description": "Urinary and reproductive health",
+    "IsActive": true,
+    "IsDeleted": false,
+    "Location": "Building F, Floor 2"
+  },
+  {
+    "Name": "Gastroenterology",
+    "Description": "Digestive system treatment",
+    "IsActive": false,
+    "IsDeleted": false,
+    "Location": "Building A, Floor 5"
+  },
+  {
+    "Name": "Psychiatry",
+    "Description": "Mental health services",
+    "IsActive": true,
+    "IsDeleted": false,
+    "Location": "Building B, Floor 4"
+  },
+  {
+    "Name": "Nephrology",
+    "Description": "Kidney care services",
+    "IsActive": true,
+    "IsDeleted": false,
+    "Location": "Building C, Floor 2"
+  },
+  {
+    "Name": "Endocrinology",
+    "Description": "Hormone-related care",
+    "IsActive": true,
+    "IsDeleted": false,
+    "Location": "Building D, Floor 1"
+  },
+  {
+    "Name": "Pulmonology",
+    "Description": "Lung and respiratory care",
+    "IsActive": true,
+    "IsDeleted": false,
+    "Location": "Building E, Floor 2"
+  },
+  {
+    "Name": "Ophthalmology",
+    "Description": "Eye care services",
+    "IsActive": false,
+    "IsDeleted": false,
+    "Location": "Building F, Floor 3"
+  },
+  {
+    "Name": "Obstetrics",
+    "Description": "Pregnancy and childbirth care",
+    "IsActive": true,
+    "IsDeleted": false,
+    "Location": "Building A, Floor 2"
+  },
+  {
+    "Name": "Gynecology",
+    "Description": "Women's reproductive health",
+    "IsActive": true,
+    "IsDeleted": false,
+    "Location": "Building B, Floor 5"
+  },
+  {
+    "Name": "Hematology",
+    "Description": "Blood disorder treatment",
+    "IsActive": true,
+    "IsDeleted": false,
+    "Location": "Building C, Floor 3"
+  },
+  {
+    "Name": "Immunology",
+    "Description": "Allergy and immune system care",
+    "IsActive": true,
+    "IsDeleted": false,
+    "Location": "Building D, Floor 4"
+  },
+  {
+    "Name": "Palliative Care",
+    "Description": "Care for serious illnesses",
+    "IsActive": false,
+    "IsDeleted": false,
+    "Location": "Building E, Floor 4"
+  },
+  {
+    "Name": "Rehabilitation",
+    "Description": "Physical and occupational therapy",
+    "IsActive": true,
+    "IsDeleted": false,
+    "Location": "Building F, Floor 1"
+  }
+]
+

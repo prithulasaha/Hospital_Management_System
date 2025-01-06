@@ -1,0 +1,141 @@
+﻿@model IEnumerable<HMSphere.MVC.ViewModels.MedicalRecordViewModel>
+
+@{
+    ViewData["Title"] = "Patient Medical Records";
+    var newRecord = new HMSphere.MVC.ViewModels.MedicalRecordViewModel();
+}
+
+<style>
+    .table td, .table th {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .btn-view {
+        background-color: #2a9fd9;
+        color: white;
+        border-radius: 20px;
+        padding: 5px 15px;
+    }
+
+        .btn-view:hover {
+            background-color: #17a2b8;
+        }
+
+    .table-row-selectable {
+        cursor: pointer;
+    }
+
+        .table-row-selectable:hover {
+            background-color: #f0f0f0;
+        }
+</style>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between mb-4">
+        <h2>Nasser's Medical Record</h2>
+    </div>
+
+    <form asp-action="SaveCreate" asp-controller="Doctor">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label asp-for="@newRecord.CreatedDate"></label>
+                    <input asp-for="@newRecord.CreatedDate" type="date" class="form-control" id="createdDate" />
+                    <span class="text-danger" asp-validation-for="@newRecord.CreatedDate"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label asp-for="@newRecord.Diagnosis"></label>
+                    <input asp-for="@newRecord.Diagnosis" class="form-control" id="diagnosis" />
+                    <span class="text-danger" asp-validation-for="@newRecord.Diagnosis"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label asp-for="@newRecord.TreatmentPlan"></label>
+                    <input asp-for="@newRecord.TreatmentPlan" class="form-control" id="treatmentPlan" />
+                    <span class="text-danger" asp-validation-for="@newRecord.TreatmentPlan"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label asp-for="@newRecord.Medications"></label>
+                    <input asp-for="@newRecord.Medications" class="form-control" id="medications" />
+                    <span class="text-danger" asp-validation-for="@newRecord.Medications"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label asp-for="@newRecord.DoctorNotes"></label>
+                    <input asp-for="@newRecord.DoctorNotes" class="form-control" id="doctorNotes" />
+                    <span class="text-danger" asp-validation-for="@newRecord.DoctorNotes"></span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3">
+                    <label asp-for="@newRecord.LastUpdated"></label>
+                    <input asp-for="@newRecord.LastUpdated" type="date" class="form-control" id="lastUpdated" />
+                    <span class="text-danger" asp-validation-for="@newRecord.LastUpdated"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-end">
+                <button type="submit" class="btn btn-success">Add New Medical Record</button>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </form>
+    <br />
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>CreatedDate</th>
+                    <th>Diagnosis</th>
+                    <th>TreatmentPlan</th>
+                    <th>Medications</th>
+                    <th>Doctor's Name</th>
+                    <th>Doctor's Note</th>
+                    <th>LastUpdated</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="table-row-selectable">
+                        <td>@item.CreatedDate</td>
+                        <td>@item.Diagnosis</td>
+                        <td>@item.TreatmentPlan</td>
+                        <td>@item.Medications</td>
+                        <td>@item.DoctorNotes</td>
+                        <td>@item.DoctorNotes</td>
+                        <td>@item.LastUpdated</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.table-row-selectable').forEach(row => {
+        row.addEventListener('click', function () {
+            // Extract data from each cell
+            const cells = this.querySelectorAll('td');
+            document.getElementById('createdDate').value = cells[0].innerText.trim();
+            document.getElementById('diagnosis').value = cells[1].innerText.trim();
+            document.getElementById('treatmentPlan').value = cells[2].innerText.trim();
+            document.getElementById('medications').value = cells[3].innerText.trim();
+            document.getElementById('doctorNotes').value = cells[5].innerText.trim();
+            document.getElementById('lastUpdated').value = cells[6].innerText.trim();
+        });
+    });
+</script>

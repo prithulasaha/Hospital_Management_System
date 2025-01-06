@@ -1,0 +1,169 @@
+﻿@model HMSphere.MVC.ViewModels.StaffWithDetailsShiftsViewModel
+
+@{
+	ViewData["Title"] = "Home Dashboard";
+}
+
+<style>
+	.profile-card {
+		background-color: #2a9fd9;
+		padding: 20px;
+		border-radius: 10px;
+		display: flex;
+		align-items: center;
+	}
+
+	.profile-img {
+		border-radius: 50%;
+		width: 150px;
+		height: 150px;
+	}
+
+	.profile-text {
+		margin-left: 20px;
+	}
+
+		.profile-text h2 {
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+
+		.profile-text p {
+			margin: 0;
+		}
+
+	.experience {
+		margin-top: 10px;
+		font-style: italic;
+	}
+
+	.has-shadow {
+		box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2);
+		width: 32%;
+	}
+
+	.bi {
+		font-size: 80px;
+		margin-left: 1.5vw;
+		margin-right: 1vw;
+	}
+
+	.table-header {
+		background-color: #2a9fd9;
+		color: white;
+	}
+
+	.btn-view {
+		background-color: #2a9fd9;
+		color: white;
+		border-radius: 20px;
+		padding: 5px 15px;
+	}
+
+		.btn-view:hover {
+			background-color: #17a2b8;
+		}
+
+	.table-container {
+		border-radius: 10px;
+		overflow: hidden;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	}
+
+	.table-title {
+		background-color: #2a9fd9;
+		color: white;
+		padding: 10px 20px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		margin-bottom: 0;
+	}
+
+	.table-width {
+		width: 48%;
+	}
+
+	.table td, .table th {
+		text-align: center;
+		vertical-align: middle;
+	}
+</style>
+
+<div class="container-fluid mt-2">
+	<div class="profile-card text-light">
+		<img src="~/images/user.png" alt="" class="profile-img">
+		<div class="profile-text">
+			<p>Hello,</p><br />
+			<h2 class="text-light">Dr. @Model.Staff.FirstName @Model.Staff.LastName</h2>
+			<p><b>@Model.Staff.JobTitle</b></p>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid d-flex justify-content-between mt-3">
+	<div class="d-flex bg-light rounded-2 has-shadow m-3 p-3">
+		<i class="bi bi-clock"></i>
+		<div class="mt-3">
+			@if (Model.Shifts != null && Model.Shifts.Any())
+			{
+
+
+
+				foreach (var shift in Model.Shifts)
+
+
+
+				{
+					<h1>@shift.Duration.TotalHours @(" hours")</h1>
+					<p>@shift.Type - From @shift.StartTime to @shift.EndTime</p>
+				}
+			}
+			else
+			{
+				<h1>No shifts available</h1>
+			}
+			<p>Working hours</p>
+		</div>
+	</div>
+	<div class="d-flex bg-light rounded-2 has-shadow m-3 p-3">
+		@if (Model.Shifts != null && Model.Shifts.Any())
+
+
+
+		{
+			var shift = Model.Shifts.First();
+			<i class="bi @(shift.Status == "Active Shift" ? "bi-check-circle-fill text-success" : "bi-x-circle-fill text-danger")"></i>
+
+			<div class="mt-3">
+				<h1>@shift.Status</h1>
+				<p>
+					@if (shift.Status == "Active Shift")
+					{
+						<span>This shift is currently in progress and within its scheduled time.</span>
+					}
+					else
+					{
+						<span>The shift is currently outside its scheduled time or has ended.</span>
+					}
+				</p>
+			</div>
+		}
+		else
+		{
+			<i class="bi bi-x-circle-fill text-danger"></i>
+			<div class="mt-3">
+				<h1>No Active Shift</h1>
+				<p>No shift data available for this staff member.</p>
+			</div>
+		}
+	</div>
+
+
+	<div class="d-flex bg-light rounded-3 has-shadow m-3 p-3">
+		<i class="bi bi-calendar3"></i>
+		<div class="mt-3">
+			<h1>@DateTime.Now.ToString("dd")</h1>
+			<p>Number Of Days Work in Current Month</p>
+		</div>
+	</div>
+</div>

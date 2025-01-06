@@ -1,0 +1,85 @@
+﻿@model HMSphere.MVC.ViewModels.MedicalRecordViewModel
+@{
+    ViewData["Title"] = "Medical Record Details";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title">Medical Record Details</h4>
+
+            <p><strong>Date:</strong> @Model.CreatedDate.ToString("yyyy/MM/dd")</p> 
+           @*  <p><strong>Date:</strong> 2024/10/15</p> *@
+
+            @* <div class="form-group">
+                <label for="patientName"><strong>Patient's Name:</strong></label>
+            </div> *@
+
+            <div class="form-group">
+                <label for="Diagnosis"><strong>Diagnosis:</strong></label>
+                <p>@Model.Diagnosis</p>
+            </div>
+
+            <div class="form-group">
+                <label for="TreatmentPlan"><strong>TreatmentPlan:</strong></label>
+                <p>@Model.TreatmentPlan</p>
+            </div>
+
+            <div class="form-group">
+                <label for="Medications"><strong>Medications:</strong></label>
+                <p>@Model.Medications</p>
+            </div>
+
+            <div class="form-group">
+                <label for="DoctorNotes"><strong>DoctorNotes:</strong></label>
+                <p>@Model.DoctorNotes</p>
+            </div>
+
+            <div class="form-group">
+                <label for="LastUpdated"><strong>LastUpdated:</strong></label>
+                <p>@Model.LastUpdated</p>
+            </div>
+
+
+           @*  <div class="form-group">
+                <label for="doctorName"><strong>Doctor's Name:</strong></label>
+                 <input type="text" class="form-control" id="doctorName" value="@Model.DoctorName" readonly />
+            </div>
+           *@
+
+            @* <div class="form-group">
+                <label for="Doctor'sNotes"><strong>Doctor's Notes:</strong></label>
+                <p>gfghksjljfhuefxgsludfushkflskdlfhsdhgnknfdugslklguuhglkjfd</p>
+                 <p>@Model.Notes</p> 
+            </div> *@
+
+
+           @*  <div class="form-group">
+                <label for="Disease"><strong>Disease:</strong></label>
+                <p>ldxkclcesdsfdlgvdfsdfvdfsmgelfvddfscvdlsdzws</p>
+                 <p>@Model.Notes</p> 
+           </div> *@
+
+           @*  <div class="form-group">
+                <label for="TreatmentPlan"><strong>Treatment Plan:</strong></label>
+                <p>dxkclcesdsfdlgvdfsdfvdfsmgelfvddfscvdlsdzwsdxkclcesdsfdlgvdfsdfvdfsmgelfvddfscvdlsdzwsldxkclcesdsfdlgvdfsdfvdfsmgelfvddfscvdlsdzws</p>
+                 <p>@Model.Notes</p> 
+            </div>
+
+            <div class="form-group">
+                <label for="Medications"><strong>Medications:</strong></label>
+                <p>hdfhdfblfsfjlxjvnxcjdxkclcesdsfdlgvdfsdfvdfsmgelfvddfscvdlsdzwsvdfvhsbdferygfbvadvfv</p>
+                 <p>@Model.Notes</p> 
+            </div>
+
+            <div class="form-group">
+                <label for="OtherDisease"><strong>Other Disease:</strong></label>
+                <p>djcnzxkljfdawwsDJoaiJDoAWFJAAJDfhdf'</p>
+                 <p>@Model.Notes</p> 
+            </div> *@
+
+        </div>
+    </div>
+</div>
+
+
